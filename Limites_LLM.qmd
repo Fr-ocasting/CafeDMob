@@ -43,6 +43,36 @@
     9.  Quel est la consommation actuelle Electricité pour les datacenter en France (dans le monde) en % 
         1.  Slide pour quantifier la consommation (0-100%)
 
+
+# Point à aborder non encore traité: 
+ 
+
+1. Détournement de l'usage, et problèmes connu: 
+    En tant que professionnel on est identifié en tant qu'expert etc. Donc si on utilise ChatGPT, et que cela se voit, on peut douter de notre crédibilité. Personnellement, lorsque je vois une utilisation manifeste de l'IA, je ne cherche plus à lire, je ne crois plus le document. 
+   - Exemple d'un cas au US où il perd sa license d'avocat qui a été généré par IA.
+   - Papier de recherche sur l'analyse statistique des mots générée, ou la richesse du texte est un indicateur. On se rend compte qu'un texte généré par IA est finalement peu riche en vocabulaire. 
+   - Génère donc des LLM avec des biais. 
+     - Exemple avec la justice raciste. 
+    - Papier de recherche sur: Génère des réponses associées à un échantillon très précis: celui d'un riche occidentale de la silicon valley. Finalement, le LLM améliorer notre réponse (la rendant plus "experte", finie par l'appauvrir).
+
+
+2. Usage massif dans le monde de l'IA générative:
+   - D'après [Graphite](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans)  un plus de 50% du contenu disponible aujourd'hui est du contenu généré par IA ![AI_Content_Vs_Human](plot/AI_Content_Vs_Human.png)
+   - Augmentation du flux d'information (exponentiel ?), entre reals instagram / tiktok / short youtube, les articles de blogs, les papiers de recherche scientifique (même nombre de PhD et pourtant nombre de papier en augmentation)
+
+3. Loi d'échelle : 
+   - Toujours plus de data (slide SDD)
+   - Des modèles toujours de plus en plus gros
+   - Quelles limites hardware ? 
+   - Quels coût écologique (eau, CO2, terre rare ...)
+
+4. Problème et question de société :
+   - Si l'IA est censé nous faciliter le travail et nous enlever les taches gourmande, en fait on est beaucoup plus productif, et cela génère un flux d'information démentiel. Ce flux est ensuité cnosommé, alors au lieu de nous faliciter la tâche, il fini par nous en rajouter à des échelles que l'on ne peut gérer.
+   - Disparition de certains secteur ? Papier de recherche entre métier que l'on pensait être impacté, et métier réellement impacté par l'IA gen.  [ai-and-the-future-of-work](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
+
+
+
+
 ## IA et IA Gen:
 Intelligence Artificielle (IA) :
   - Machine Learning (ML) 
@@ -147,6 +177,7 @@ Comment ?
 - Créativité vs Génératif
 
 ### Macaroning prompting 
+- Perroquet / Papagei / loro / Parrot
 ![perpagelorot](plot/perpagelorot.png)
 
 ###  math et logique: 
@@ -545,6 +576,9 @@ En ce moment: "protocole MCP" (Model, Critic, Proposer) lancé par Claude
 [https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK](https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK)
 - Colloque de rentrée 2025: Formes de l'intelligence. Mystères mathématiques d'intelligences pas si artificielles, Stéphane Mallat, Collège de France [https://www.youtube.com/watch?v=xdDKq59MaxU](https://www.youtube.com/watch?v=xdDKq59MaxU)
 
+- Anglais: 
+  - Projection [https://epoch.ai/files/AI_2030.pdf](https://epoch.ai/files/AI_2030.pdf)
+  - 
 - Plus poussée:
   - Formation Deep Learning FIDLE
   - Cours collège de France, Stéphane Mallat
