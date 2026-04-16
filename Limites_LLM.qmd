@@ -39,14 +39,14 @@
        1. Mail est plus polluant
        2. Requête chatbot est plus polluant
     8. Lorsqu'une IA répond, a quel point vous faites confiance à l'IA ? 
-       1. Slide pour quantifier la confiance (0-100%)
+       1. Simulation: vous êtes dans un contexte pro, vous devez vérifier une information concernant un ....
+       2. Simulation: vous êtes dans un contexte perso, vous voulez vérifier une annecdote ....
+       3. Slide pour quantifier la confiance (0-100%)
     9.  Quel est la consommation actuelle Electricité pour les datacenter en France (dans le monde) en % 
         1.  Slide pour quantifier la consommation (0-100%)
 
 
 # Point à aborder non encore traité: 
- 
-
 1. Détournement de l'usage, et problèmes connu: 
     En tant que professionnel on est identifié en tant qu'expert etc. Donc si on utilise ChatGPT, et que cela se voit, on peut douter de notre crédibilité. Personnellement, lorsque je vois une utilisation manifeste de l'IA, je ne cherche plus à lire, je ne crois plus le document. 
    - Exemple d'un cas au US où il perd sa license d'avocat qui a été généré par IA.
@@ -65,8 +65,12 @@
    - Des modèles toujours de plus en plus gros
    - Quelles limites hardware ? 
    - Quels coût écologique (eau, CO2, terre rare ...)
+     - Augmentation de la demande en électricité dans le monde: d'après un rapport de l'[International Energy Agency (IEA), 2024](https://www.iea.org/reports/world-energy-outlook-2024), de 2023 à 2030 elle devrait augmenter de 6750 TWh, soit l'équivalent de plus de la demande d'électricité de l'UE et US combiné en 2023. L'augmentation de la demande relative au Data Center correspond à celle de la désanilisation, et moins d'un tiers de celle des véhicules électriques ou du refroidissement dans le secteur immobiliers.
+     - Ce chiffre concerne à décénie à venir uniquement.
+     - STEPS: **ST**at**E**d **P**olicies **S**cenario: scénario de référence, qui suppose que les politiques actuelles sont maintenues, et que les engagements pris sont respectés.
+  ![Augmentation de la demande d'électricité dans le monde](plot/electricity_demand_IEA.png)
 
-4. Problème et question de société :
+1. Problème et question de société :
    - Si l'IA est censé nous faciliter le travail et nous enlever les taches gourmande, en fait on est beaucoup plus productif, et cela génère un flux d'information démentiel. Ce flux est ensuité cnosommé, alors au lieu de nous faliciter la tâche, il fini par nous en rajouter à des échelles que l'on ne peut gérer.
    - Disparition de certains secteur ? Papier de recherche entre métier que l'on pensait être impacté, et métier réellement impacté par l'IA gen.  [ai-and-the-future-of-work](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
 
