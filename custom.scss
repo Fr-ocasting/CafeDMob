@@ -1,0 +1,318 @@
+/*
+ * Custom theme CEREMA pour Quarto Reveal.js
+ * Basé sur les couleurs et styles du template LaTeX CEREMA
+ */
+
+/*-- scss:defaults --*/
+
+/* === COULEURS PRIMAIRES === */
+:root {
+  --cerema-dark-blue: #292574;    /* RGB(41, 37, 116) */
+  --cerema-image-blue: #4272b2;   /* RGB(66, 114, 178) */
+  --cerema-light-blue: #e8eef7;
+  --cerema-accent: #ff6b35;
+  --cerema-gray: #666666;
+  --cerema-light-gray: #f5f5f5;
+}
+
+/*-- scss:rules --*/
+
+/* === POLICES === */
+.reveal {
+  font-family: "Calibri", "Carlito", "Helvetica Neue", sans-serif;
+  color: #333333;
+}
+
+.reveal h1, 
+.reveal h2, 
+.reveal h3, 
+.reveal h4, 
+.reveal h5, 
+.reveal h6 {
+  font-family: "Arial", "Helvetica", sans-serif;
+  color: var(--cerema-dark-blue);
+  font-weight: bold;
+  text-transform: none;
+}
+
+.reveal h1 { font-size: 2.8em; }
+.reveal h2 { font-size: 2em; }
+.reveal h3 { font-size: 1.5em; }
+
+/* === BACKGROUND === */
+.reveal {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+}
+
+.reveal-viewport .slide-background {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+}
+
+/* === SLIDES INVERSES === */
+.reveal .inverse,
+.reveal section[data-background-color="#292574"],
+.reveal section.inverse {
+  background: linear-gradient(135deg, var(--cerema-dark-blue) 0%, #1a1655 100%);
+}
+
+.reveal .inverse h1,
+.reveal .inverse h2,
+.reveal .inverse h3,
+.reveal section[data-background-color="#292574"] h1,
+.reveal section[data-background-color="#292574"] h2,
+.reveal section[data-background-color="#292574"] h3 {
+  color: white;
+}
+
+.reveal .inverse p,
+.reveal .inverse li,
+.reveal section[data-background-color="#292574"] p,
+.reveal section[data-background-color="#292574"] li {
+  color: white;
+}
+
+/* === ÉLÉMENTS DE LISTE === */
+.reveal ul li,
+.reveal ol li {
+  margin: 10px 0;
+}
+
+.reveal li {
+  margin: 0.5em 0;
+}
+
+/* === BLOCS SPÉCIAUX === */
+.callout-note {
+  background-color: var(--cerema-light-blue);
+  border-left: 5px solid var(--cerema-image-blue);
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.callout-warning {
+  background-color: #fff3cd;
+  border-left: 5px solid #ff6b35;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.callout-tip {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.callout-note strong {
+  color: var(--cerema-dark-blue);
+}
+
+.callout-warning strong {
+  color: #ff6b35;
+}
+
+.callout-tip strong {
+  color: #28a745;
+}
+
+/* === COLONNES === */
+.columns {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 0 10px;
+}
+
+/* === TABLEAUX === */
+.reveal table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.reveal table thead {
+  background-color: var(--cerema-dark-blue);
+  color: white;
+}
+
+.reveal table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.reveal table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.reveal table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.reveal table tbody tr:hover {
+  background-color: var(--cerema-light-blue);
+}
+
+/* === CODE === */
+.reveal code {
+  background-color: #f4f4f4;
+  color: var(--cerema-dark-blue);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Monaco", "Courier New", monospace;
+}
+
+.reveal pre {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.reveal pre code {
+  background: none;
+  padding: 0;
+  color: #333;
+}
+
+/* === IMAGES === */
+.reveal img {
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*  === LIENS === */
+.reveal a {
+  color: var(--cerema-image-blue);
+  text-decoration: none;
+  border-bottom: 2px solid var(--cerema-image-blue);
+}
+
+.reveal a:hover {
+  color: var(--cerema-dark-blue);
+  border-bottom-color: var(--cerema-dark-blue);
+}
+
+.reveal .inverse a,
+.reveal section[data-background-color="#292574"] a {
+  color: #b39ddb;
+  border-bottom-color: #b39ddb;
+}
+
+.reveal .inverse a:hover,
+.reveal section[data-background-color="#292574"] a:hover {
+  color: white;
+  border-bottom-color: white;
+}
+
+/* === CONTRÔLES === */
+.reveal .controls {
+  color: var(--cerema-dark-blue);
+}
+
+.reveal .progress {
+  background: var(--cerema-dark-blue);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: var(--cerema-image-blue);
+}
+
+/* === NOTES DE PRÉSENTATION === */
+.reveal .notes {
+  display: none;
+}
+
+/* === FRAGMENTS === */
+.reveal .fragment {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reveal .fragment.fade-out {
+  opacity: 0;
+}
+
+.reveal .fragment.fade-in {
+  opacity: 1;
+}
+
+/* === TEXTE SPÉCIALISÉ === */
+.smaller {
+  font-size: 0.75em;
+}
+
+.large {
+  font-size: 1.5em;
+}
+
+.muted {
+  color: var(--cerema-gray);
+  opacity: 0.7;
+}
+
+/* === FOOTER ET LOGO === */
+.reveal .slide-logo {
+  opacity: 0.5;
+  max-height: 60px;
+}
+
+.reveal .footer {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7em;
+  color: var(--cerema-gray);
+  text-transform: none;
+}
+
+/* === EMOJIS ET SYMBOLES === */
+.reveal em {
+  color: var(--cerema-image-blue);
+  font-style: italic;
+}
+
+.reveal strong {
+  color: var(--cerema-dark-blue);
+  font-weight: bold;
+}
+
+/* === ANIMATION D'APPARITION === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal .fragment.fade-in-then-semi-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.reveal .fragment.fade-in-then-semi-out.visible {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+/* === ADAPTER POUR L'AFFICHAGE === */
+@media screen and (max-width: 768px) {
+  .reveal h1 { font-size: 2em; }
+  .reveal h2 { font-size: 1.5em; }
+  .reveal h3 { font-size: 1.2em; }
+  .reveal p { font-size: 0.9em; }
+}

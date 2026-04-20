@@ -1,3 +1,4 @@
+# Début du café avec un Kahoot, n'apparait pas dans les slides 
 1. Kahoot (WookLap) - question au début :
     1. Est-ce que vous utilisez des outils IA ? 
        1. Oui
@@ -46,38 +47,8 @@
         1.  Slide pour quantifier la consommation (0-100%)
 
 
-# Point à aborder non encore traité: 
-1. Détournement de l'usage, et problèmes connu: 
-    En tant que professionnel on est identifié en tant qu'expert etc. Donc si on utilise ChatGPT, et que cela se voit, on peut douter de notre crédibilité. Personnellement, lorsque je vois une utilisation manifeste de l'IA, je ne cherche plus à lire, je ne crois plus le document. 
-   - Exemple d'un cas au US où il perd sa license d'avocat qui a été généré par IA.
-   - Papier de recherche sur l'analyse statistique des mots générée, ou la richesse du texte est un indicateur. On se rend compte qu'un texte généré par IA est finalement peu riche en vocabulaire. 
-   - Génère donc des LLM avec des biais. 
-     - Exemple avec la justice raciste. 
-    - Papier de recherche sur: Génère des réponses associées à un échantillon très précis: celui d'un riche occidentale de la silicon valley. Finalement, le LLM améliorer notre réponse (la rendant plus "experte", finie par l'appauvrir).
 
-
-2. Usage massif dans le monde de l'IA générative:
-   - D'après [Graphite](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans)  un plus de 50% du contenu disponible aujourd'hui est du contenu généré par IA ![AI_Content_Vs_Human](plot/AI_Content_Vs_Human.png)
-   - Augmentation du flux d'information (exponentiel ?), entre reals instagram / tiktok / short youtube, les articles de blogs, les papiers de recherche scientifique (même nombre de PhD et pourtant nombre de papier en augmentation)
-
-3. Loi d'échelle : 
-   - Toujours plus de data (slide SDD)
-   - Des modèles toujours de plus en plus gros
-   - Quelles limites hardware ? 
-   - Quels coût écologique (eau, CO2, terre rare ...)
-     - Augmentation de la demande en électricité dans le monde: d'après un rapport de l'[International Energy Agency (IEA), 2024](https://www.iea.org/reports/world-energy-outlook-2024), de 2023 à 2030 elle devrait augmenter de 6750 TWh, soit l'équivalent de plus de la demande d'électricité de l'UE et US combiné en 2023. L'augmentation de la demande relative au Data Center correspond à celle de la désanilisation, et moins d'un tiers de celle des véhicules électriques ou du refroidissement dans le secteur immobiliers.
-     - Ce chiffre concerne à décénie à venir uniquement.
-     - STEPS: **ST**at**E**d **P**olicies **S**cenario: scénario de référence, qui suppose que les politiques actuelles sont maintenues, et que les engagements pris sont respectés.
-  ![Augmentation de la demande d'électricité dans le monde](plot/electricity_demand_IEA.png)
-
-1. Problème et question de société :
-   - Si l'IA est censé nous faciliter le travail et nous enlever les taches gourmande, en fait on est beaucoup plus productif, et cela génère un flux d'information démentiel. Ce flux est ensuité cnosommé, alors au lieu de nous faliciter la tâche, il fini par nous en rajouter à des échelles que l'on ne peut gérer.
-   - Disparition de certains secteur ? Papier de recherche entre métier que l'on pensait être impacté, et métier réellement impacté par l'IA gen.  [ai-and-the-future-of-work](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
-
-
-
-
-## IA et IA Gen:
+# IA et IA Gen:
 Intelligence Artificielle (IA) :
   - Machine Learning (ML) 
     - Deep Learning (DL) 
@@ -114,6 +85,37 @@ Comment ?
 - Big Data 
 - Capacité de calcul 
 
+# Point à aborder non encore traité: 
+1. Détournement de l'usage, et problèmes connu: 
+    En tant que professionnel on est identifié en tant qu'expert etc. Donc si on utilise ChatGPT, et que cela se voit, on peut douter de notre crédibilité. Personnellement, lorsque je vois une utilisation manifeste de l'IA, je ne cherche plus à lire, je ne crois plus le document. 
+   - Exemple d'un cas au US où il perd sa license d'avocat qui a été généré par IA.
+   - Papier de recherche sur l'analyse statistique des mots générée, ou la richesse du texte est un indicateur. On se rend compte qu'un texte généré par IA est finalement peu riche en vocabulaire. 
+   - Génère donc des LLM avec des biais. 
+     - Exemple avec la justice raciste. 
+    - Papier de recherche sur: Génère des réponses associées à un échantillon très précis: celui d'un riche occidentale de la silicon valley. Finalement, le LLM améliorer notre réponse (la rendant plus "experte", finie par l'appauvrir).
+
+
+2. Usage massif dans le monde de l'IA générative:
+   - D'après [Graphite](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans)  un plus de 50% du contenu disponible aujourd'hui est du contenu généré par IA ![AI_Content_Vs_Human](plot/AI_Content_Vs_Human.png)
+   - Augmentation du flux d'information (exponentiel ?), entre reals instagram / tiktok / short youtube, les articles de blogs, les papiers de recherche scientifique (même nombre de PhD et pourtant nombre de papier en augmentation)
+
+3. Loi d'échelle : 
+   - Toujours plus de data (slide SDD)
+   - Des modèles toujours de plus en plus gros
+   - Quelles limites hardware ? 
+   - Quels coût écologique (eau, CO2, terre rare ...)
+     - Augmentation de la demande en électricité dans le monde: d'après un rapport de l'[International Energy Agency (IEA), 2024](https://www.iea.org/reports/world-energy-outlook-2024), de 2023 à 2030 elle devrait augmenter de 6750 TWh, soit l'équivalent de plus de la demande d'électricité de l'UE et US combiné en 2023. L'augmentation de la demande relative au Data Center correspond à celle de la désanilisation, et moins d'un tiers de celle des véhicules électriques ou du refroidissement dans le secteur immobiliers.
+     - Ce chiffre concerne à décénie à venir uniquement.
+     - STEPS: **ST**at**E**d **P**olicies **S**cenario: scénario de référence, qui suppose que les politiques actuelles sont maintenues, et que les engagements pris sont respectés.
+  ![Augmentation de la demande d'électricité dans le monde](plot/electricity_demand_IEA.png)
+
+1. Problème et question de société :
+   - Si l'IA est censé nous faciliter le travail et nous enlever les taches gourmande, en fait on est beaucoup plus productif, et cela génère un flux d'information démentiel. Ce flux est ensuité cnosommé, alors au lieu de nous faliciter la tâche, il fini par nous en rajouter à des échelles que l'on ne peut gérer.
+   - Disparition de certains secteur ? Papier de recherche entre métier que l'on pensait être impacté, et métier réellement impacté par l'IA gen.  [ai-and-the-future-of-work](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
+
+
+
+
 # Quelques ordre de grandeurs: 
 ## Machine Learning Hardware et capacité de calcul
 #### Capacité de calcul des GPUs (AI chip):
@@ -148,7 +150,7 @@ Comment ?
 #### Taille de contexte et token de sortie LLMs:
   - La taille des token de sortie double tout les ans pour les LLM classiques, ils quintuple pour les modèles de raisonnement.
   - La taille de token de sortie des modèles de raisonnement est 10 fois plus grande que les modèles classiques.
-  - https://epoch.ai/data-insights/output-length/ 
+  - [source](https://epoch.ai/data-insights/output-length/)
 ![insight-output-length](plot/insight-output-length.png)
 ----
 
