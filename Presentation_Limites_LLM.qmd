@@ -5,6 +5,7 @@ author: CEREMA
 date: today
 execute:
   enabled: true
+  keep-ipynb: false
 format:
   revealjs:
     theme: 
@@ -20,10 +21,13 @@ format:
     # footer: CEREMA Limites des LLMs
     slide-number: true
     incremental: false
+  html:
+    keep-ipynb: false
 editor: source
 ---
 
 # De quoi parle-t-on ? {data-transition="none"}
+
 
 ---
 ## De quoi parle-t-on ? {data-transition="none"}
