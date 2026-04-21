@@ -1,6 +1,6 @@
 ---
 title: Cafe DMob - Intelligence Artificielle  
-subtitle: Introduction et outils d'IA Generative
+subtitle: IA Generative, introduction et quelques outils
 author: CEREMA
 date: today
 execute:
@@ -23,26 +23,10 @@ format:
 editor: source
 ---
 
-# Plan de la presentation
-
-::: {.incremental}
-- Quizz interactif 
-- De quoi parle-t-on
-- Quelques chiffres...
-- Capacites et limites connues
-- Bonnes pratiques et ressources
-:::
+# De quoi parle-t-on ? {data-transition="none"}
 
 ---
-
-## Quizz interactif {data-transition="none" background-color="#f5f5f5"}
-
----
-
-# De quoi parle-t-on ? {data-transition="none" background-color="#f5f5f5"}
-
----
-## De quoi parle-t-on ? {data-transition="none" background-color="#f5f5f5"}
+## De quoi parle-t-on ? {data-transition="none"}
 ```{=html}
 <svg width="1000" height="600" viewBox="0 0 1000 600" style="background: white; border-radius: 10px; margin: 0 auto; display: block; font-family: sans-serif;">
   <defs>
@@ -107,28 +91,38 @@ editor: source
 
 ---
 
-# Chronologie {data-transition="none" background-color="#f5f5f5"}
+# Chronologie {data-transition="none"}
+
 ---
 
-## Ere des Systemes Experts (1960-1990)
+## Systemes Experts (1960-1990)
+
 :::{.incremental}
+
 - **MYCIN** (1970s): diagnostic medical
 - **Deep Blue** (1997): jeu d'echecs
 - Limites sur des systèmes complexes, nécessitant des règles explicites : donne lieu à **l'hiver de l'IA**
+
 :::
+
 ---
 
-## Ere de l'Apprentissage Statistique (1990-aujourd'hui)
+## Apprentissage Statistique (1990-aujourd'hui)
+
 ::: {.incremental}
+
 - D'abord algo de ML 'simples': SVM, Perceptron, Random Forests
 - Puis, les reseaux de neurones explosent en performance et repoussent les limites attendues:
   - 2012: AlexNet pour la vision par oridnateur
   - 2017: "Attention is All You Need" mécanisme d'attention pour le Natural Language Processing (NLP)
   - 2022: ChatGPT: LLMs accessibles au grand public
+
 :::
+
 ---
 
-# Quelques ordres de grandeurs {data-transition="none" background-color="#f5f5f5"}
+# Quelques ordres de grandeurs {data-transition="none"}
+
 ---
 
 ## Explosion du contenu généré par IA
@@ -149,6 +143,7 @@ editor: source
 
 
 ::::
+
 ---
 
 ## Augmentation exponentielle des capacités de calcul
@@ -162,13 +157,16 @@ editor: source
 :::
 
 ::: {.column width="70%"}
+
 ![](plot/epoch-ml-hardware.png){fig-align="right" width="90%"}
+
 :::
+
 ::::
 
 ---
 
-## Capacités de calcul cumulées dans le monde {background-color="#f5f5f5"}
+## Capacités de calcul cumulées dans le monde 
 
 :::: {.columns align="center"}
 
@@ -183,6 +181,7 @@ editor: source
 ![](plot/ai-chip-production.png){fig-align="right" width="90%"}
 
 :::
+
 ::::
 
 ---
@@ -203,13 +202,19 @@ editor: source
 :::
 
 ::: {.column width="70%"}
+
 ![](plot/insight-gpu-depreciation-absolute.png){fig-align="right" width="90%"}
+
 :::
+
 ::::
+
 ---
 
 ## Demande en éléctricité 
+
 :::: {.columns align="center"}
+
 ::: {.column width="25%"}
 
 <font size="5">[Rapport de l'International Energy Agency (IEA), 2024](https://www.iea.org/reports/world-energy-outlook-2024)</font>
@@ -224,14 +229,17 @@ editor: source
 ![Augmentation de la demande d'électricité dans le monde](plot/electricity_demand_IEA.png){fig-align="right" width="95%"}
 
 :::
+
 ::::
 
 ---
 
-# Quelques chiffres sur les LLMs {data-transition="none" background-color="#f5f5f5"}
+# Quelques chiffres sur les LLMs {data-transition="none"}
+
 ---
 
 ## Taille de contexte
+
 :::: {.columns}
 
 ::: {.column width="25%"}
@@ -249,11 +257,10 @@ editor: source
 :::
 
 ::::
+
 ---
 
-
-
-## Tailles de modèles
+## Taille de modèles
 
 ```{python}
 #| label: map-generation
@@ -429,6 +436,7 @@ $$P = \frac{9 \times \binom{8}{5} \times \binom{64}{1}}{\binom{72}{6}}$$
     $$P = \frac{32\,256}{\color{red}{171\,513\,432}} \approx 0,00018806$$
 
 La probabilité est d'environ **0,0188 %**, soit environ **1 chance sur 5 317**.
+
 ::: 
 
 ---
@@ -460,6 +468,7 @@ En simplifiant la fraction ou en effectuant la division :
 $$P \approx 0,00020447$$
 
 Soit environ **0,0204 %**.
+
 :::
 
 ---
@@ -467,6 +476,7 @@ Soit environ **0,0204 %**.
 ### Gemini Pro retourne: 
 
 ::: {style="border: 2px solid black;font-size: 0.3em;"}
+
 **Analyse du modèle probabiliste**
 
 Le problème s'apparente à un tirage sans remise de 6 éléments parmi un ensemble de 72 éléments. L'ordre de tirage n'a pas d'importance, il convient donc d'utiliser les combinaisons. 
@@ -504,11 +514,15 @@ $$P(X=5) = \frac{32\,256}{156\,238\,908} = \frac{384}{1\,859\,987} \approx 0,000
 
 * **Probabilité d'obtenir au moins 5 fois le même numéro (5 ou 6 fois) :**
 $$P(X \ge 5) = \frac{32\,256 + 252}{156\,238\,908} = \frac{32\,508}{156\,238\,908} = \frac{387}{1\,859\,987} \approx 0,000208 \text{ (soit environ 0,0208 \%)}$$
+
 :::
+
 ---
 
 ### ChatGPT (gratuit) retourne:
+
 ::: {style="border: 2px solid black;font-size: 0.3em;"}
+
 On modélise ça avec un tirage **sans remise** → loi hypergéométrique.
 
 **Étape 1 : Nombre total de tirages possibles**
@@ -545,7 +559,9 @@ $$P \approx \frac{32256}{\color{red}{156,236,111}} \approx 0.000206$$
 $$\boxed{P \approx 0.0206\%}$$
 👉 C’est donc **très peu probable** (environ 1 chance sur 4 850).
 Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 identiques, ou comparer avec un tirage avec remise 👍
+
 :::
+
 ---
 
 ### Macaroning prompting 
@@ -553,6 +569,7 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
 ![Perroquet / Papagei / loro / Parrot](plot/perpagelorot.png){fig-align="center" width="90%"}
 
 ---
+
 
 ### Halluinations & Incoherence:
 
@@ -563,17 +580,21 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
 
 ### Texte généré par IA et crédibilité:
 
-- En tant qu'établissement publique
-- Est-ce qu'on doit utiliser les outils d'IA gen ?
-  -  Information générées depui sles chatbots sont très souvent :
-     - éronnées
-     - incomplètes
-     - creuses  
--  Supprimer les marqueurs d'IA Gen.
+- En tant qu'établissement publique, est-ce qu'on doit utiliser les outils d'IA gen ?
+- Si oui, est-ce qu'il existe un cadre et des règlementations (ex: gouv) ?
+
+Information générées depuis les chatbots sont très souvent :
+
+- éronnées
+- incomplètes
+- creuses  
+
+Il faut alors supprimer les marqueurs d'IA Gen.
   
 ---
 
-# Marqueurs d'IA Gen:
+
+# Marqueurs d'IA Gen: {data-transition="none"}
 
 ---
 
@@ -582,32 +603,76 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
 ![Image issue du média 'Contre Attaque'](plot/bfmtv.png)
 
 --- 
- 
-## Emoji, caractère spéciaux, formulation:
+
+
+## Emoji, caractère spéciaux:
+
+::: {style="font-size: 0.7em;"}
 
 - Utilisation excessive d'emojis (fusées 🚀, flamme 🔥, coche ou check mark ✅, cible 🎯, graphiques "📈", "📊",...)
+- Filigrane 
+- Tirets, point virgule, caractères spéciaux ex: 
+  - tiret court/trait d'union: '-'
+  - tiret moyen: '–'
+  - tiret cadratin: '—'
  
+:::
+
 --- 
 
 ## Très (trop) structuré: 
+
+::: {style="font-size: 0.7em;"}
 
 - Introduction, développement, conclusion. 
 - Beaucoup de liste à puces, de structures, de tables, de résumés 
 - Ne ressemble pas à des écris humains, nottamment pour des écris qui ne demandent pas autant de structure (ex: commentaire en ligne). 
 - A tendance à sur-expliquer même des éléments très simples.
 
+:::
+
 ---
 
-## Formulation cruse et dénué de sens
+## Formulation creuse et dénuée de sens
 
-- Utilisation de formulation qui semblent cohérente à la première lecture, mais dont le sens est limité voir eronné 
-- Un vocabulaire creux. On lira facilement des "point cruciaux", "éléments clés", "point critique"
-- [Epanorthose](https://aitalk.it/fr/ai-epanortosi-fr.html)
-  - *Ce n'est pas seulement le mauvais temps, mais le changement climatique qui frappe à la porte*
-  - **Pas X, mais Y**
-- A tendence à suivre des stéréotypes grossiers:
+::: {style="font-size: 0.7em;"}
+
+- Utilisation de formulation qui semblent cohérente à la première lecture, mais dont le sens est limité voir eronné
+- Un vocabulaire creux. On lira facilement des "point cruciaux", "éléments clés", "point critique", "Révolution", "Paradigme", "Fondamental"
+-  [Epanorthose](https://aitalk.it/fr/ai-epanortosi-fr.html): **Pas X, mais Y**:
+  - AU lieu de "La technologie est avancée", un LLM retournera: 
+  - "Il ne s'agit pas seulement de technologie avancée, mais d'une révolution qui transforme notre façon de vivre".
+- A tendence à suivre des stéréotypes grossiers
+ 
+Pour certains, cela est [dûe à des mécanismes d'apprentissage RLHF](https://aitalk.it/fr/ai-epanortosi-fr.html) (Reinforcement Learning with Human Feedback) 
+
+:::
+
 --- 
 
+## Sycophancy:
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+[Sycophancy](https://arxiv.org/pdf/2505.13995)
+  - <font size="5">Analyse à partir de conversation reddit</font>
+  - <font size="5">Am I the asshole (AITA) / NTA (Not the asshole) / YTA (You're the asshole) / FLIP( Flipped perspective):</font>
+
+
+:::
+
+::: {.column width="75%"}
+
+![sycophancy_def](plot/sycophancy_def.png){fig-align="center" width="90%"}
+![sycophancy](plot/reddit_AITA.png){fig-align="center" width="90%"}
+
+:::
+
+::::
+
+---
 
 # Outils d'IA Gen 
 
@@ -615,11 +680,12 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
 
 ## Chatbot 
 
-  - ChatGPT (OpenAI)
-  - Gemini (Google)
-  - Mistral (Mistral)
-  - Claude (Anthropic)
-  - DeepSeek (DeepSeek)
+  - ChatGPT (OpenAI, US)
+  - Gemini (Google, US)
+  - Le Chat (Mistral, France)
+  - Claude (Anthropic, US)
+  - DeepSeek (DeepSeek, Chine)
+  - Lumo (Proton, Suisse)
   - ...
   
 ---
@@ -630,6 +696,7 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
   - DALL-E (OpenAI)
   - Midjourney (Midjourney)
   - Stable Diffusion (Stability AI)
+  - Nanobanana Pro (Google)
   
 ---
 
@@ -639,67 +706,98 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
   - Copilot (GitHub/Microsoft)
   - CodeWhisperer (Amazon)
   - CodeGen (Salesforce)
+  - ...
+
+---
+
+
+## Recherche web:
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+  - <font size="5">Perplexity (Perplexity AI): recherche web en temps réel et fourni les sources</font> 
+  - <font size="5">Propose une sortie plus chatbot</font>
+  
+:::
+
+::: {.column width="75%}
+
+![Interface de Perplexity AI: Question générique, peu détaillée](plot/perplexity_ai.png){fig-align="right" width="90%}
+
+:::
+
+::::
+
+---
+
+## Recherche web: 
+
+![Interface de Perplexity AI: Demande plus détaillée nécessitant des ressources documentaires](plot/perplexity_ai_2.png){fig-align="center" width="90%}
   
 ---
 
-## Recherche documentaire: 
-::: {.columns}
 
-::: {.column width="25%"}
+## Recherche documentaire: 
+
   - <font size="6">Elicit (Ought): recherche bibliographique scientifique </font>
   - <font size="6">Propose une sortie plus "strucutrée", sous forme de rapport ou tableaux csv</font>
-  - <font size="6">Long à répondre, et version pro très couteuse</font>
+  - <font size="6">Long à répondre, et version pro couteuse, mais riche quantité d'information</font>
 
-:::
-
-::: {.column width="70%}
-
-  ![Interface de Elicit: Question générique, peu détaillée](plot/Elicit.png)
-
-:::
 ---
+
+## Recherche documentaire: ELICIT
+
+![Interface de Elicit: Question générique, peu détaillée](plot/Elicit.png){fig-align="right" width="130%}
+
+---
+
 ## Recherche documentaire: 
 
   ![Interface de Elicit: Demande plus détaillée nécessitant des ressources documentaires](plot/Elicit_2.png)
 
 ---
 
-## Recherche web: 
-
-  - Perplexity (Perplexity AI): recherche web en temps réel et fourni les sources
-    - Propose une sortie plus chatbot
-    - ![Interface de Perplexity AI: Question générique, peu détaillée](plot/perplexity_ai.png)
-    - ![Interface de Perplexity AI: Demande plus détaillée nécessitant des ressources documentaires](plot/perplexity_ai_2.png)
-  
----
 
 ## Recherche documentaire à partir de nos propres sources:
 
-  - NotebookLM (Google): recherche documentaire à partir de nos propres sources. cite explitement les morceaux de texte qui ont été utilisé pour construire la réponse
+  - NotebookLM (Google): recherche documentaire à partir de nos propres sources. 
+  - Cite explitement les morceaux de texte qui ont été utilisé pour construire la réponse
   - Propose une pluralité de formats de sortie: slides, vidéos, podcast ...
 
 ---
 
 ## Correction de texte: 
+
 :::: {.columns}
+
 ::: {.column width="25%"}
 
-- <font size="6"> [Grammarly](https://app.grammarly.com/ddocs/2955389823): version payante vs très couteuse</font>
+- <font size="6"> [Grammarly](https://app.grammarly.com/ddocs/2955389823): version free utilisable sans limite de mots</font>
+- <font size="6"> Applicable lors de rédaction texte sur Microsoft Word, ou Extension utilisable directement en rédaction de mails</font>
 
 :::
+
 
 ::: {.column width="70%"}
 
 ![Grammarly](plot/grammarly_1.png){fig-align="center" width="90%"}
 
 :::
+
+::::
 ---
 
 ## Calibrer son chatbot:
+
 :::: {.columns}
+
 ::: {.column width="25%"}
 
-<font size="6">Possibilité de rentrer dans les paramètres une instruction générale qui sera toujours donnée en entrée du chatbot quelque soit la question posée.</font>
+<font size="5">Possibilité de rentrer dans les paramètres une instruction générale qui sera toujours donnée en entrée du chatbot quelque soit la question posée.</font>
+
+<font size="5">Ici, je lui ai demandé d'être "critique" au sens "être sceptique et questionner les affirmations", mais cela a mal été interprété...</font>
 
 :::
 
@@ -708,123 +806,72 @@ Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 iden
 ![AI critique](plot/AI_critique_1.png){fig-align="center" width="90%"}
 
 :::
----
 
-## Bonne pratique:
-
-- Prendre le temps d'identifier exactement notre besoin, et de contextualiser le plus possible notre question. 
-- Toujours sourcer les informations. Bien que les réponses s'améliore il y a toujours des hallucinations.
-- Rester dans une démarche active, privilégier la recherche internet simple et sourcé 
----
-
-## Domaine en constante évolution:
-Avant on parlait de "Prompt engineering"
-Aujourd'hui on parle de "IA Agentique", orienté développer pour le moment mais 
-En ce moment: "protocole MCP" (Model, Critic, Proposer) lancé par Claude
----
-
-## Ressources:
-- Formation découverte de l'IA (FIDLE, CNRS)
-[https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK](https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK)
-- Colloque de rentrée 2025: Formes de l'intelligence. Mystères mathématiques d'intelligences pas si artificielles, Stéphane Mallat, Collège de France [https://www.youtube.com/watch?v=xdDKq59MaxU](https://www.youtube.com/watch?v=xdDKq59MaxU)
-
-- Anglais: 
-  - Projection [https://epoch.ai/files/AI_2030.pdf](https://epoch.ai/files/AI_2030.pdf)
-  - 
-- Plus poussée:
-  - Formation Deep Learning FIDLE
-  - Cours collège de France, Stéphane Mallat
-  - Perspective on IA Yann LeCun [https://www.youtube.com/watch?v=nqDHPpKha_A](https://www.youtube.com/watch?v=nqDHPpKha_A)
+::::
 
 ---
 
 
-# Points à aborder ? 
+## Ressources supplémentaires:
 
-- Biais et données d'entrainements
-  - Exemple: Justice raciste, stereotypes de genre
-  - L'IA generative "ameliore" les reponses -> les appauvrit en richesse
-- Coût écologique : Eau, CO2, terres rares, éléctricités
-- Coût social : Inégalités, Fake news, guerre de l'information, surveillance, emplois 
+- <font size="6">[Formation découverte de l'IA](https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK)(FIDLE, CNRS) </font>
+- <font size="6">[Colloque de rentrée 2025: Formes de l'intelligence. Mystères mathématiques d'intelligences pas si artificielles, Stéphane Mallat, Collège de France](https://www.youtube.com/watch?v=xdDKq59MaxU)</font>
+
+- <font size="6">Ressources en anglais: </font>
+  - <font size="6">[Projection des tendances relatives à l'IA d'ici 2030](https://epoch.ai/files/AI_2030.pdf)</font>
+   
+- <font size="6">Ressources plus poussées:</font>
+  - <font size="6">[Formation Deep Learning FIDLE](https://www.youtube.com/watch?v=iUGTPcyYCPM&list=PLlI0-qAzf2Sbc7QL2u-GcLykggE2aIWJW), environ 20 séances de 2h chacunes</font>
+  - <font size="6">[Génération de données en IA, Stéphane Mallat](https://www.bing.com/videos/riverview/relatedvideo?q=cours+college+de+france+stephane+mallat&mid=2FD4DA191EA56912BFD62FD4DA191EA56912BFD6&churl=https%3a%2f%2fwww.youtube.com%2fchannel%2fUCk58LsWC9j892FUMBwN5AsQ&FORM=VIRE), environ 13 séances 1h30 chacunes</font>
+  - <font size="6">[Perspective on IA Yann LeCun](https://www.youtube.com/watch?v=nqDHPpKha_A)</font>
+
 ---
 
 
+# Et après ? 
+
+---
+
+## Potentiel points à aborder : 
+
+::: {style="font-size: 0.7em;"}
+
+- Biais et données d'entrainements: justice raciste, base de donnée occidentale, RLHF orientés
+- L'IA generative "ameliore" les reponses, mais la richesse et pluralité des réponses est apprauvit comme elles sont standardisées.
+- Coût écologique : Eau, CO2, terres rares, éléctricité, effet rebond...
+- Coût social : Inégalités, Fake news, guerre de l'information, surveillance, emplois, santé mentale...
+  -  Disparition de certains secteur, [métier impacté ?](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
+  -  
+Il y a discours très polarisé autour de l'IA gen entre menaces et opportunités. C'est un domaine en constante évolution, qui change extrêmement vite et ce qui est vrai aujourd'hui ne le sera surement plus demain. Le domaine est nouveaux pour nous, mais aussi pour ceux qui le développent.   
+
+:::
+
+---
+
+## 
+
+---
 
 # Exemples de slides générés par IA: 
-<!--  Quasiment tous les slides étaients creux... -->
----
 
-## Hallucinations & Incoherence
+Quasiment tous les slides étaients creux.
 
-**Exemple video:** Histoire generee par IA
+Aucun contenue généré à partir de mes notes n'était pertinent. Ils étaient soit creux, soit éronnées.
 
-Allure coherente mais pleine d'anachronismes et d'erreurs factuelles
-
-Une reponse **grammaticalement parfaite** n'est PAS une garantie de **verite factuelle**
 
 ---
 
-## La "Sycophancy" - Alignement superficiel
+:::: {.columns}
 
-![](plot/sycophancy_def.png){fig-align="center" width="80%"}
-
-L'IA adapte ses reponses pour **plaire** plutot que pour etre exacte
-
----
-
-## Le Paradoxe de la Productivite
-
-Plus on est productif, plus on cree de travail
-
-Les IA nous **enlèvent les taches grosses**, nous rendent **plus productifs**
-→ Genere un **flux d'information dementiel**
-→ Au lieu de faciliter, cela nous **en rajoute** a l'echelle qu'on ne peut gerer
-
----
-
-## Calibrer votre LLM
-
-![](plot/AI_critique_1.png){fig-align="center" width="80%"}
-
-**System prompt = Instructions permanentes** pour chaque requete
-
-Exemple:
-```
-Soyez critique. Identifiez les incertitudes. 
-Citez vos sources. Preferez la precision a la fluidite.
-```
-
----
-
-
-## La revolution des Agent IA
-
-::: {.incremental}
-- **Avant (2023):** "Prompt Engineering" = l'art de bien demander
-- **Aujourd'hui (2024-2025):** "IA Agentique" = IA autonome avec outils
-- **Protocole MCP** (Model, Critic, Proposer) lance par Anthropic
-- L'IA peut maintenant acceder au web, executer code, utiliser des APIs
+::: {.column width="45%"}
+![](plot/slides_creux/slide_1.png){width="90%"}
+![](plot/slides_creux/slide_2.png){width="90%"}
+![](plot/slides_creux/slide_4.png){width="90%"}
 :::
 
----
-
-# Qu'est-ce que l'IA ne saura JAMAIS faire? {background-color="#292574" color="white"}
-
----
-
-## Le piege de la prediction negative
-
-A chaque avancee majeure, on croyait connaitre les limites infranchissables de l'IA.
-Et a chaque fois, ces limites ont ete depassees.
-
-::: {.incremental}
-- **1997:** "Deep Blue n'aura jamais aux images" -> CNN (1989-1998)
-- **2011:** "L'IA ne reconnaitera jamais les visages comme un humain" -> AlexNet (2012)
-- **2016:** "L'IA ne parlera jamais naturellement" -> Transformers (2017)
-- **2023:** "L'IA ne raisonnera jamais vrai" -> Chain-of-Thought (2024)
-- **2024:** "L'IA ne fera jamais de maths" -> ?
+::: {.column width="45%"}
+![](plot/slides_creux/slide_5.png){width="90%"}
+![](plot/slides_creux/slide_3.png){width="90%"}
 :::
 
-Prudence: Programmer ses limites = Attendre d'etre surpris
-
----
+::::
