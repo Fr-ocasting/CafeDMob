@@ -828,11 +828,11 @@ Pour certains, cela est [dûe à des mécanismes d'apprentissage RLHF](https://a
 ---
 
 
-# Et après ? 
+# Enjeux socio-écologiques
 
 ---
 
-## Potentiel points à aborder : 
+## Quels impacts potentiels :
 
 ::: {style="font-size: 0.7em;"}
 
@@ -841,7 +841,8 @@ Pour certains, cela est [dûe à des mécanismes d'apprentissage RLHF](https://a
 - Coût écologique : Eau, CO2, terres rares, éléctricité, effet rebond...
 - Coût social : Inégalités, Fake news, guerre de l'information, surveillance, emplois, santé mentale...
   -  Disparition de certains secteur, [métier impacté ?](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
-  -  
+  - Capacités cognitives: concentration, mémoire, attention, créativité
+  
 Il y a discours très polarisé autour de l'IA gen entre menaces et opportunités. C'est un domaine en constante évolution, qui change extrêmement vite et ce qui est vrai aujourd'hui ne le sera surement plus demain. Le domaine est nouveaux pour nous, mais aussi pour ceux qui le développent.   
 
 :::
