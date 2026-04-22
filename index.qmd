@@ -851,10 +851,6 @@ Il y a discours très polarisé autour de l'IA gen entre menaces et opportunité
 
 ---
 
-## 
-
----
-
 # Exemples de slides générés par IA: 
 
 Quasiment tous les slides étaients creux.
