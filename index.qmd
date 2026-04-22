@@ -1,0 +1,882 @@
+---
+title: Cafe DMob - Intelligence Artificielle  
+subtitle: IA Generative, introduction et quelques outils
+author: CEREMA
+date: today
+execute:
+  enabled: true
+  keep-ipynb: false
+format:
+  revealjs:
+    theme: 
+      - default
+      - custom.scss
+    transition: fade
+    background-transition: fade
+    embed-resources: true
+    width: 1200
+    height: 800
+    margin: 0.1
+    logo: template_cerema/fig/Bloc-marque RF Cerema horizontal.svg
+    # footer: CEREMA Limites des LLMs
+    slide-number: true
+    incremental: false
+  html:
+    keep-ipynb: false
+editor: source
+---
+
+# De quoi parle-t-on ? {data-transition="none"}
+
+
+---
+## De quoi parle-t-on ? {data-transition="none"}
+```{=html}
+<svg width="1000" height="600" viewBox="0 0 1000 600" style="background: white; border-radius: 10px; margin: 0 auto; display: block; font-family: sans-serif;">
+  <defs>
+    <style>
+      .circle-ia { fill: #E3F2FD; stroke: #1E3A8A; stroke-width: 2; }
+      .circle-ml { fill: #FEF08A; stroke: #feab8a; stroke-width: 2; }
+      .circle-dl { fill: #BBF7D0; stroke: #14532D; stroke-width: 2; }
+      .circle-llm { fill: #7ccf99; stroke: #14532D; stroke-width: 2; }
+      .circle-gnn { fill: #125b43; stroke: #14532D; stroke-width: 2; }
+      .circle-CV { fill: #108084; stroke: #14532D; stroke-width: 2; }
+      .circle-rl { fill: #1d4698; stroke: #14532D; stroke-width: 2; } 
+      
+      .legend-text { font-size: 16px; font-weight: bold; fill: #333; alignment-baseline: middle; }
+      .text-element { font-size: 14px; font-weight: bold; fill: #111; text-anchor: middle; }
+      .text-small { font-size: 12px; fill: #333; text-anchor: middle; }
+      
+      .fragment { opacity: 0; transition: opacity 0.3s ease; }
+      .fragment.visible { opacity: 1; }
+    </style>
+  </defs>
+  
+  <g id="legend">
+    <rect x="200" y="20" width="20" height="20" class="circle-ia" data-fragment-index="0" rx="3" />
+    <text x="230" y="35" class="legend-text" data-fragment-index="0">Intelligence Artificielle (IA)</text>
+    <rect x="480" y="20" width="20" height="20" class="circle-ml fragment" data-fragment-index="2" rx="3" />
+    <text x="510" y="35" class="legend-text fragment" data-fragment-index="2">Machine Learning (ML)</text>
+
+    <rect x="200" y="55" width="20" height="20" class="circle-dl fragment" data-fragment-index="4" rx="3" />
+    <text x="230" y="70" class="legend-text fragment" data-fragment-index="4">Deep Learning (DL)</text>
+    
+    <rect x="480" y="55" width="20" height="20" class="circle-llm fragment" data-fragment-index="5" rx="3" />
+    <text x="510" y="70" class="legend-text fragment" data-fragment-index="5">IA Générative (LLMs)</text>
+
+    <rect x="720" y="20" width="20" height="20" class="circle-CV fragment" data-fragment-index="6" rx="3" />
+    <text x="750" y="35" class="legend-text fragment" data-fragment-index="6">Computer Vision (CV)</text>
+
+    <rect x="720" y="55" width="20" height="20" class="circle-gnn fragment" data-fragment-index="7" rx="3" />   
+    <text x="750" y="70" class="legend-text fragment" data-fragment-index="7">Graph Neural Networks (GNNs)</text>
+
+    <rect x="720" y="85" width="20" height="20" class="circle-rl fragment" data-fragment-index="8" rx="3" />   
+    <text x="750" y="100" class="legend-text fragment" data-fragment-index="8">Reinforcement Learning (RL)</text>
+  </g>
+
+  <g id="diagram">
+    <circle class="circle-ia" data-fragment-index="1" cx="500" cy="350" r="240"/>
+    
+    <circle class="circle-ml fragment" data-fragment-index="2" cx="500" cy="350" r="190"/>
+    <text class="text-element fragment" data-fragment-index="3" x="500" y="185">ML</text>
+    
+    <circle class="circle-dl fragment" data-fragment-index="4" cx="500" cy="350" r="150"/>
+    <text class="text-element fragment" data-fragment-index="4" x="500" y="225">DL</text>
+
+    <circle class="circle-llm fragment" data-fragment-index="5" cx="480" cy="370" r="90"/>
+    <text class="text-element fragment" data-fragment-index="5" x="480" y="350">IA Générative et LLMs</text>
+    <text class="text-small fragment" data-fragment-index="5" x="480" y="370">ChatGPT, Gemini, Claude, ...</text>
+    <circle class="circle-CV fragment" data-fragment-index="6" cx="610" cy="320" r="30"/>
+    <circle class="circle-gnn fragment" data-fragment-index="7" cx="620" cy="400" r="10"/>
+    <circle class="circle-rl fragment" data-fragment-index="8" cx="550" cy="260" r="30"/>
+  </g>
+</svg>
+```
+
+---
+
+# Chronologie {data-transition="none"}
+
+---
+
+## Systemes Experts (1960-1990)
+
+:::{.incremental}
+
+- **MYCIN** (1970s): diagnostic medical
+- **Deep Blue** (1997): jeu d'echecs
+- Limites sur des systèmes complexes, nécessitant des règles explicites : donne lieu à **l'hiver de l'IA**
+
+:::
+
+---
+
+## Apprentissage Statistique (1990-aujourd'hui)
+
+::: {.incremental}
+
+- D'abord algo de ML 'simples': SVM, Perceptron, Random Forests
+- Puis, les reseaux de neurones explosent en performance et repoussent les limites attendues:
+  - 2012: AlexNet pour la vision par oridnateur
+  - 2017: "Attention is All You Need" mécanisme d'attention pour le Natural Language Processing (NLP)
+  - 2022: ChatGPT: LLMs accessibles au grand public
+
+:::
+
+---
+
+# Quelques ordres de grandeurs {data-transition="none"}
+
+---
+
+## Explosion du contenu généré par IA
+
+:::: {.columns align="center"}
+
+::: {.column width="25%"}
+
+- <font size="6">**[Plus de 50%](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans) du contenu disponible est généré par IA**</font>
+:::
+
+::: {.column width="70%"}
+
+![Contenu AI vs Humain (Graphite, 2024)](plot/AI_Content_Vs_Human.png){fig-align="right" width="90%"}
+
+:::
+
+
+
+::::
+
+---
+
+## Augmentation exponentielle des capacités de calcul
+
+:::: {.columns align="center"}
+
+::: {.column width="25%"}
+
+- <font size="6">Puissances des GPUs: **[x 1.6 par an](https://epoch.ai/data/machine-learning-hardware/?view=graph) (x10 tous les 5 ans)**</font>
+
+:::
+
+::: {.column width="70%"}
+
+![](plot/epoch-ml-hardware.png){fig-align="right" width="90%"}
+
+:::
+
+::::
+
+---
+
+## Capacités de calcul cumulées dans le monde 
+
+:::: {.columns align="center"}
+
+::: {.column width="25%"}
+
+- <font size="6">Puissance de calcul totale disponible **[DOUBLE tous les 7 mois](https://epoch.ai/data-insights/ai-chip-production/)**</font>
+
+:::
+
+::: {.column width="70%"}
+
+![](plot/ai-chip-production.png){fig-align="right" width="90%"}
+
+:::
+
+::::
+
+---
+
+## Exemple avec les GPU NVIDIA
+
+:::: {.columns align="center"}
+
+::: {.column width="25%"}
+
+<font size="6">NVIDIA: Leader sur le marché des GPU pour les data centers</font>
+
+- <font size="6">**Volta (fin 2020):** 1.1e20 FLOP/s cumules</font>
+- <font size="6">**Hopper (fin 2024):** 3e21 FLOP/s cumules</font>
+- <font size="6">**x30 en seulement 4ans!**</font>
+  
+<font size="6">[Source](plot/insight-gpu-depreciation-absolute.png)</font>
+:::
+
+::: {.column width="70%"}
+
+![](plot/insight-gpu-depreciation-absolute.png){fig-align="right" width="90%"}
+
+:::
+
+::::
+
+---
+
+## Demande en éléctricité 
+
+:::: {.columns align="center"}
+
+::: {.column width="25%"}
+
+<font size="5">[Rapport de l'International Energy Agency (IEA), 2024](https://www.iea.org/reports/world-energy-outlook-2024)</font>
+
+- <font size="5">De 2023 a 2030: augmentation demande electrique mondiale equivalent a l'UE + USA combinees en 2023</font>
+- <font size="5"> STEPS: **ST**at**E**d **P**olicies **S**cenario: scénario de référence, suppose politiques et engagements actuels maintenus</font>
+
+:::
+
+::: {.column width="70%"}
+
+![Augmentation de la demande d'électricité dans le monde](plot/electricity_demand_IEA.png){fig-align="right" width="95%"}
+
+:::
+
+::::
+
+---
+
+# Quelques chiffres sur les LLMs {data-transition="none"}
+
+---
+
+## Taille de contexte
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+- <font size="6">La taille du contexte [double chaque annee](https://epoch.ai/data-insights/output-length/) pour les LLMs classiques</font>
+- <font size="6">Les modeles de raisonnement: **x5 par an**</font>
+- <font size="6">Les modeles de raisonnement: **x10 plus volumineux** que les LLMs classiques</font>
+
+:::
+
+::: {.column width="70%"}
+
+![](plot/insight-output-length.png){fig-align="right" width="90%"}
+
+:::
+
+::::
+
+---
+
+## Taille de modèles
+
+```{python}
+#| label: map-generation
+#| echo: false
+# https://developers.openai.com/api/docs/models/ 
+# https://benchable.ai/models/openai/gpt-3.5-turbo-1106
+# https://en.wikipedia.org/wiki/GPT-3  (nb token entrée GPT3)
+# https://mattrickard.com/the-context-length-observation  (context length of GPT1, 2, 3, 3.5, 4)
+if True: 
+    import json 
+    import pandas as pd
+    import bokeh 
+    from bokeh.plotting import figure, show
+    from bokeh.models import ColumnDataSource, HoverTool, CustomJSTickFormatter, ColorBar, Legend, LegendItem
+    import numpy as np
+    from bokeh.transform import linear_cmap
+    from bokeh.plotting import output_notebook
+
+    json_path = 'chatbot_context_token_date.json'
+    json_file = json.load(open(json_path))
+
+    df = pd.DataFrame(json_file).T
+
+    def convert_size(size_str):
+        if size_str.endswith('K'):
+            return int(float(size_str[:-1]) * 1e3)
+        elif size_str.endswith('M'):
+            return int(float(size_str[:-1]) * 1e6)
+        elif size_str.endswith('B'):
+            return int(float(size_str[:-1]) * 1e9)
+        elif size_str.endswith('T'):
+            return int(float(size_str[:-1]) * 1e12)
+        elif size_str == "None":
+            return -1
+        else:
+            return int(size_str)
+
+    def get_size(parameters,maxi):
+        if parameters is None:
+            return 3
+        elif parameters == -1:
+            return 3
+        else:
+            return np.sqrt(parameters)/np.sqrt(maxi)*50#(np.log10(parameters)/np.log10(maxi))*20# (np.log10(parameters)-7)*3
+
+    palette = list(reversed(bokeh.palettes.YlOrRd7))
+    size_col = 'int_parameters'
+    df['int_parameters'] = df['expected_parameters'].apply(lambda x: convert_size(x))
+    df['int_context_length'] = df['context_length'].apply(lambda x: convert_size(x))
+    df['int_max_tokens'] = df['max_tokens'].apply(lambda x: convert_size(x))
+    df['log_max_tokens'] = df['int_max_tokens'].apply(lambda x: np.log10(x) if (x is not None and x != -1) else -1)
+    df['released'] = pd.to_datetime(df['released'])
+    df['size'] = df[size_col].apply(lambda x: get_size(x, df[size_col].max()))
+
+    source = ColumnDataSource(df)
+
+    p = figure(x_axis_type='datetime', 
+            title="Evolution taille de context des LLMs", 
+            sizing_mode='stretch_width',
+            width=800, 
+            height=550)
+
+    mapper = linear_cmap('int_max_tokens',
+                        palette, 
+                        df['int_max_tokens'].min(), 
+                        df['int_max_tokens'].max())
+
+    p.scatter(x='released', 
+            y='int_context_length', 
+            size='size',
+            source=source, 
+            fill_color=mapper,
+            line_color='#292828', alpha=0.4)
+
+    p.yaxis.formatter = CustomJSTickFormatter(code="""
+        if (tick >= 1e6) {
+            return (tick / 1e6) + 'M';
+        } else if (tick >= 1e3) {
+            let val = tick / 1e3;
+            return val + (val === 100 ? 'k' : 'K');
+        } else {
+            return tick;
+        }
+    """)
+
+    color_bar = ColorBar(color_mapper=mapper['transform'], 
+                        orientation='horizontal',
+                        title="Max Output Tokens")
+    p.add_layout(color_bar, 'below')
+
+    # legend_items = []
+    # for val, label in [(1e7, '10M'), (1e9, '1B'), (1e11, '100B')]:
+    #     dummy_source = ColumnDataSource(dict(released=[pd.NaT], int_context_length=[np.nan]))
+    #     dummy = p.scatter(x='released', y='int_context_length', size=get_size(val), 
+    #                       source=dummy_source, line_color='#292828', fill_color='white', alpha=0.4)
+    #     legend_items.append(LegendItem(label=label, renderers=[dummy]))
+
+    # size_legend = Legend(items=legend_items, orientation="horizontal", title="Taille (Paramètres)")
+    # p.add_layout(size_legend, 'below')
+
+    hover = HoverTool(tooltips=[
+        ("Model", "@index"),
+        ("Parameters", "@parameters"),
+        ("Released", "@released{%F}"),
+        ("Knowledge Cutoff", "@knowledge_cutoff"),
+        ("Context Length", "@context_length"),
+        ("Output token", "@max_tokens"),
+    ], formatters={'@released': 'datetime'})
+
+    p.add_tools(hover)
+
+    # modification: ----
+    from bokeh.embed import file_html
+    from bokeh.resources import CDN
+    from IPython.display import HTML, display
+    import html
+    html_str = file_html(p, CDN, "LLM Context Plot")
+    escaped_html = html.escape(html_str)
+    iframe_code = f'<iframe srcdoc="{escaped_html}" width="100%" height="600px" style="border:none; background:white; overflow:hidden;"></iframe>'
+    display(HTML(iframe_code))
+    # ----
+
+    # output_notebook(hide_banner=True)
+    # show(p)
+``` 
+
+---
+
+## IA pour le calcul ? 
+
+- <font size="6">Exemple de problème "simple" de combinatoire:</font>
+
+<font size="6">*Dans une piscine se trouvent 72 balles, de 9 numéros distincts. Chacun des numéro est présent 8 fois. Quel est la probabilité de tirer 5 fois le même numéro, sur 6 tirage sans remise ?*</font>
+
+Réponse attendue: 
+
+Choix de 6 parmi 72:
+$\binom{72}{6} = \frac{72!}{6!(72-6)!} = 158 439 456$
+Choix de 5 balles parmi les 8 portant le même numéro :
+$\binom{8}{5} = 56$
+Choix de la dernière balle restante parmis les 72-8 autres balles: 
+$\binom{64}{1} = 64$
+
+D'où :
+$P = \frac{9 \times 56 \times 64}{158 439 456} = 2.035e-4$
+
+---
+
+### Gemini Rapide retourne:
+
+::: {style="border: 2px solid black; font-size: 0.3em;"}
+
+Pour calculer la probabilité de tirer exactement 5 fois le même numéro sur 6 tirages sans remise, il convient d'utiliser la loi hypergéométrique.
+
+**1. Structure du calcul**
+Le problème consiste à choisir un numéro spécifique parmi les 9 disponibles, puis à calculer la probabilité d'obtenir 5 exemplaires de ce numéro et 1 exemplaire parmi les 64 autres balles restantes.
+
+* **Nombre total de combinaisons possibles** : Tirer 6 balles parmi 72.
+    $$\binom{72}{6} = \frac{72!}{6!(72-6)!} = \color{red}{171\,513\,432}$$
+* **Nombre de numéros favorables** : Il y a 9 numéros distincts qui peuvent être le numéro répété.
+* **Nombre de combinaisons pour un numéro spécifique** :
+    * Choisir 5 balles parmi les 8 portant ce numéro : $\binom{8}{5} = 56$
+    * Choisir 1 balle parmi les 64 autres balles : $\binom{64}{1} = 64$
+
+**2. Formule de la probabilité**
+La probabilité $P$ est définie par le rapport entre le nombre de cas favorables et le nombre total de cas possibles :
+
+$$P = \frac{9 \times \binom{8}{5} \times \binom{64}{1}}{\binom{72}{6}}$$
+
+**3. Résultat numérique**
+* **Cas favorables** : $9 \times 56 \times 64 = 32\,256$
+* **Calcul final** :
+    $$P = \frac{32\,256}{\color{red}{171\,513\,432}} \approx 0,00018806$$
+
+La probabilité est d'environ **0,0188 %**, soit environ **1 chance sur 5 317**.
+
+::: 
+
+---
+
+### Gemini Raisonnement retourne: 
+
+::: {style="border: 2px solid black;font-size: 0.3em;"}
+Pour calculer la probabilité de tirer exactement 5 fois le même numéro sur 6 tirages sans remise, la démarche utilise l'analyse combinatoire.
+
+**1. Calcul du nombre total de tirages possibles**
+Le nombre total de façons de choisir 6 balles parmi 72 est donné par la combinaison :
+$$\binom{72}{6} = \frac{72!}{6!(72-6)!} = 157\,753\,320$$
+
+**2. Calcul du nombre de cas favorables**
+Pour obtenir exactement 5 fois le même numéro, il faut :
+* **Choisir le numéro concerné** : il y a 9 numéros distincts possibles.
+* **Choisir 5 balles parmi les 8 de ce numéro** : soit $\binom{8}{5}$.
+* **Choisir la 6ème balle** parmi les balles ayant un numéro différent (pour ne pas en avoir 6 du même numéro) : il reste $72 - 8 = 64$ balles.
+
+Le nombre de cas favorables est :
+$$9 \times \binom{8}{5} \times \binom{64}{1}$$
+$$9 \times 56 \times 64 = 32\,256$$
+
+**3. Calcul de la probabilité**
+La probabilité $P$ est le rapport des cas favorables sur le nombre total de tirages :
+$$P = \frac{32\,256}{\color{red}{157\,753\,320}}$$
+
+En simplifiant la fraction ou en effectuant la division :
+$$P \approx 0,00020447$$
+
+Soit environ **0,0204 %**.
+
+:::
+
+---
+
+### Gemini Pro retourne: 
+
+::: {style="border: 2px solid black;font-size: 0.3em;"}
+
+**Analyse du modèle probabiliste**
+
+Le problème s'apparente à un tirage sans remise de 6 éléments parmi un ensemble de 72 éléments. L'ordre de tirage n'a pas d'importance, il convient donc d'utiliser les combinaisons. 
+
+L'expression "tirer 5 fois le même numéro" peut être interprétée strictement (exactement 5 occurrences) ou au sens large (au moins 5 occurrences, ce qui inclut 6 occurrences). Les deux scénarios sont calculés ci-dessous par rigueur méthodologique.
+
+**1. Calcul du nombre total d'issues possibles**
+
+Le nombre total de combinaisons de 6 balles parmi 72 est :
+$$C_{72}^6 = \binom{72}{6} = \frac{72!}{6!(72 - 6)!} = \color{red}{156\,238\,908}$$
+
+**2. Calcul des cas favorables pour exactement 5 balles identiques**
+
+Pour obtenir exactement 5 fois le même numéro, il faut :
+* Choisir le numéro qui sera répété 5 fois parmi les 9 disponibles : $\binom{9}{1} = 9$ possibilités.
+* Choisir 5 balles parmi les 8 balles portant ce numéro : $\binom{8}{5} = 36$ possibilités. *(Correction : $\binom{8}{5} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56$)*.
+* Choisir la 6ème balle parmi les autres numéros restants, soit 64 balles (72 total - 8 balles du numéro déjà choisi) : $\binom{64}{1} = 64$ possibilités.
+
+Le nombre de cas favorables pour exactement 5 balles est :
+$$9 \times 56 \times 64 = 32\,256$$
+
+**3. Calcul des cas favorables pour exactement 6 balles identiques**
+
+Pour obtenir 6 fois le même numéro :
+* Choisir le numéro répété 6 fois : $\binom{9}{1} = 9$ possibilités.
+* Choisir 6 balles parmi les 8 portant ce numéro : $\binom{8}{6} = 28$ possibilités.
+
+Le nombre de cas favorables pour exactement 6 balles est :
+$$9 \times 28 = 252$$
+
+**Résultats**
+
+* **Probabilité d'obtenir exactement 5 fois le même numéro :**
+$$P(X=5) = \frac{32\,256}{156\,238\,908} = \frac{384}{1\,859\,987} \approx 0,000206 \text{ (soit environ 0,0206 \%)}$$
+
+* **Probabilité d'obtenir au moins 5 fois le même numéro (5 ou 6 fois) :**
+$$P(X \ge 5) = \frac{32\,256 + 252}{156\,238\,908} = \frac{32\,508}{156\,238\,908} = \frac{387}{1\,859\,987} \approx 0,000208 \text{ (soit environ 0,0208 \%)}$$
+
+:::
+
+---
+
+### ChatGPT (gratuit) retourne:
+
+::: {style="border: 2px solid black;font-size: 0.3em;"}
+
+On modélise ça avec un tirage **sans remise** → loi hypergéométrique.
+
+**Étape 1 : Nombre total de tirages possibles**
+
+On choisit 6 balles parmi 72 :
+$
+\binom{72}{6}
+$
+
+**Étape 2 : Cas favorables (exactement 5 balles du même numéro)**
+
+* Choisir le numéro concerné : (9) façons
+* Choisir 5 balles parmi les 8 de ce numéro : ($\binom{8}{5}$)
+* Choisir la 6ᵉ balle parmi les autres (il reste (72 - 8 = 64) balles) : (64)
+
+Donc :
+$$
+\text{favorables} = 9 \times \binom{8}{5} \times 64$$
+
+**Étape 3 : Probabilité**
+$$
+P = \frac{9 \times \binom{8}{5} \times 64}{\binom{72}{6}}$$
+On simplifie :
+* $$\binom{8}{5} = 56$$
+* $$P = \frac{9 \times 56 \times 64}{\binom{72}{6}} = \frac{32256}{\binom{72}{6}}
+$$
+
+**Valeur numérique**
+$$\binom{72}{6} \approx \color{red}{156,236,111}$$
+$$P \approx \frac{32256}{\color{red}{156,236,111}} \approx 0.000206$$
+
+**Résultat final**
+
+$$\boxed{P \approx 0.0206\%}$$
+👉 C’est donc **très peu probable** (environ 1 chance sur 4 850).
+Si tu veux, je peux aussi te montrer la probabilité d’avoir *au moins* 5 identiques, ou comparer avec un tirage avec remise 👍
+
+:::
+
+---
+
+### Macaroning prompting 
+
+![Perroquet / Papagei / loro / Parrot](plot/perpagelorot.png){fig-align="center" width="90%"}
+
+---
+
+
+### Halluinations & Incoherence:
+
+![Contenu supposé être pédagogique qui semble être cohérente car répond à nos stérotype et idée reçues, mais est en [réalité truffée d'anachronisme et d'erreur](https://www.youtube.com/shorts/p_aecpznc6Q)...](plot/yanntoutcourt_histoire.mp4)
+
+---
+
+
+### Texte généré par IA et crédibilité:
+
+- En tant qu'établissement publique, est-ce qu'on doit utiliser les outils d'IA gen ?
+- Si oui, est-ce qu'il existe un cadre et des règlementations (ex: gouv) ?
+
+Information générées depuis les chatbots sont très souvent :
+
+- éronnées
+- incomplètes
+- creuses  
+
+Il faut alors supprimer les marqueurs d'IA Gen.
+  
+---
+
+
+# Marqueurs d'IA Gen: {data-transition="none"}
+
+---
+
+## Marqueurs grossiers:
+
+![Image issue du média 'Contre Attaque'](plot/bfmtv.png)
+
+--- 
+
+
+## Emoji, caractère spéciaux:
+
+::: {style="font-size: 0.7em;"}
+
+- Utilisation excessive d'emojis (fusées 🚀, flamme 🔥, coche ou check mark ✅, cible 🎯, graphiques "📈", "📊",...)
+- Filigrane 
+- Tirets, point virgule, caractères spéciaux ex: 
+  - tiret court/trait d'union: '-'
+  - tiret moyen: '–'
+  - tiret cadratin: '—'
+ 
+:::
+
+--- 
+
+## Très (trop) structuré: 
+
+::: {style="font-size: 0.7em;"}
+
+- Introduction, développement, conclusion. 
+- Beaucoup de liste à puces, de structures, de tables, de résumés 
+- Ne ressemble pas à des écris humains, nottamment pour des écris qui ne demandent pas autant de structure (ex: commentaire en ligne). 
+- A tendance à sur-expliquer même des éléments très simples.
+
+:::
+
+---
+
+## Formulation creuse et dénuée de sens
+
+::: {style="font-size: 0.7em;"}
+
+- Utilisation de formulation qui semblent cohérente à la première lecture, mais dont le sens est limité voir eronné
+- Un vocabulaire creux. On lira facilement des "point cruciaux", "éléments clés", "point critique", "Révolution", "Paradigme", "Fondamental"
+-  [Epanorthose](https://aitalk.it/fr/ai-epanortosi-fr.html): **Pas X, mais Y**:
+  - AU lieu de "La technologie est avancée", un LLM retournera: 
+  - "Il ne s'agit pas seulement de technologie avancée, mais d'une révolution qui transforme notre façon de vivre".
+- A tendence à suivre des stéréotypes grossiers
+ 
+Pour certains, cela est [dûe à des mécanismes d'apprentissage RLHF](https://aitalk.it/fr/ai-epanortosi-fr.html) (Reinforcement Learning with Human Feedback) 
+
+:::
+
+--- 
+
+## Sycophancy:
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+[Sycophancy](https://arxiv.org/pdf/2505.13995)
+  - <font size="5">Analyse à partir de conversation reddit</font>
+  - <font size="5">Am I the asshole (AITA) / NTA (Not the asshole) / YTA (You're the asshole) / FLIP( Flipped perspective):</font>
+
+
+:::
+
+::: {.column width="75%"}
+
+![sycophancy_def](plot/sycophancy_def.png){fig-align="center" width="90%"}
+![sycophancy](plot/reddit_AITA.png){fig-align="center" width="90%"}
+
+:::
+
+::::
+
+---
+
+# Outils d'IA Gen 
+
+---
+
+## Chatbot 
+
+  - ChatGPT (OpenAI, US)
+  - Gemini (Google, US)
+  - Le Chat (Mistral, France)
+  - Claude (Anthropic, US)
+  - DeepSeek (DeepSeek, Chine)
+  - Lumo (Proton, Suisse)
+  - ...
+  
+---
+
+## Générateur d'image: 
+
+- Outils de génération d'image: 
+  - DALL-E (OpenAI)
+  - Midjourney (Midjourney)
+  - Stable Diffusion (Stability AI)
+  - Nanobanana Pro (Google)
+  
+---
+
+## Générateur de code:
+
+- Outils de génération de code: 
+  - Copilot (GitHub/Microsoft)
+  - CodeWhisperer (Amazon)
+  - CodeGen (Salesforce)
+  - ...
+
+---
+
+
+## Recherche web:
+
+:::: {.columns}
+
+::: {.column width="20%"}
+
+  - <font size="5">Perplexity (Perplexity AI): recherche web en temps réel et fourni les sources</font> 
+  - <font size="5">Propose une sortie plus chatbot</font>
+  
+:::
+
+::: {.column width="75%}
+
+![Interface de Perplexity AI: Question générique, peu détaillée](plot/perplexity_ai.png){fig-align="right" width="90%}
+
+:::
+
+::::
+
+---
+
+## Recherche web: 
+
+![Interface de Perplexity AI: Demande plus détaillée nécessitant des ressources documentaires](plot/perplexity_ai_2.png){fig-align="center" width="90%}
+  
+---
+
+
+## Recherche documentaire: 
+
+  - <font size="6">Elicit (Ought): recherche bibliographique scientifique </font>
+  - <font size="6">Propose une sortie plus "strucutrée", sous forme de rapport ou tableaux csv</font>
+  - <font size="6">Long à répondre, et version pro couteuse, mais riche quantité d'information</font>
+
+---
+
+## Recherche documentaire: ELICIT
+
+![Interface de Elicit: Question générique, peu détaillée](plot/Elicit.png){fig-align="right" width="130%}
+
+---
+
+## Recherche documentaire: 
+
+  ![Interface de Elicit: Demande plus détaillée nécessitant des ressources documentaires](plot/Elicit_2.png)
+
+---
+
+
+## Recherche documentaire à partir de nos propres sources:
+
+  - NotebookLM (Google): recherche documentaire à partir de nos propres sources. 
+  - Cite explitement les morceaux de texte qui ont été utilisé pour construire la réponse
+  - Propose une pluralité de formats de sortie: slides, vidéos, podcast ...
+
+---
+
+## Correction de texte: 
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+- <font size="6"> [Grammarly](https://app.grammarly.com/ddocs/2955389823): version free utilisable sans limite de mots</font>
+- <font size="6"> Applicable lors de rédaction texte sur Microsoft Word, ou Extension utilisable directement en rédaction de mails</font>
+
+:::
+
+
+::: {.column width="70%"}
+
+![Grammarly](plot/grammarly_1.png){fig-align="center" width="90%"}
+
+:::
+
+::::
+---
+
+## Calibrer son chatbot:
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+<font size="5">Possibilité de rentrer dans les paramètres une instruction générale qui sera toujours donnée en entrée du chatbot quelque soit la question posée.</font>
+
+<font size="5">Ici, je lui ai demandé d'être "critique" au sens "être sceptique et questionner les affirmations", mais cela a mal été interprété...</font>
+
+:::
+
+::: {.column width="70%"}
+
+![AI critique](plot/AI_critique_1.png){fig-align="center" width="90%"}
+
+:::
+
+::::
+
+---
+
+
+## Ressources supplémentaires:
+
+- <font size="6">[Formation découverte de l'IA](https://www.youtube.com/playlist?list=PLlI0-qAzf2Sbv5UYion4XL-198kzmeBHK)(FIDLE, CNRS) </font>
+- <font size="6">[Colloque de rentrée 2025: Formes de l'intelligence. Mystères mathématiques d'intelligences pas si artificielles, Stéphane Mallat, Collège de France](https://www.youtube.com/watch?v=xdDKq59MaxU)</font>
+
+- <font size="6">Ressources en anglais: </font>
+  - <font size="6">[Projection des tendances relatives à l'IA d'ici 2030](https://epoch.ai/files/AI_2030.pdf)</font>
+   
+- <font size="6">Ressources plus poussées:</font>
+  - <font size="6">[Formation Deep Learning FIDLE](https://www.youtube.com/watch?v=iUGTPcyYCPM&list=PLlI0-qAzf2Sbc7QL2u-GcLykggE2aIWJW), environ 20 séances de 2h chacunes</font>
+  - <font size="6">[Génération de données en IA, Stéphane Mallat](https://www.bing.com/videos/riverview/relatedvideo?q=cours+college+de+france+stephane+mallat&mid=2FD4DA191EA56912BFD62FD4DA191EA56912BFD6&churl=https%3a%2f%2fwww.youtube.com%2fchannel%2fUCk58LsWC9j892FUMBwN5AsQ&FORM=VIRE), environ 13 séances 1h30 chacunes</font>
+  - <font size="6">[Perspective on IA Yann LeCun](https://www.youtube.com/watch?v=nqDHPpKha_A)</font>
+
+---
+
+
+# Enjeux socio-écologiques
+
+---
+
+## Quels impacts potentiels :
+
+::: {style="font-size: 0.7em;"}
+
+- Biais et données d'entrainements: justice raciste, base de donnée occidentale, RLHF orientés
+- L'IA generative "ameliore" les reponses, mais la richesse et pluralité des réponses est apprauvit comme elles sont standardisées.
+- Coût écologique : Eau, CO2, terres rares, éléctricité, effet rebond...
+- Coût social : Inégalités, Fake news, guerre de l'information, surveillance, emplois, santé mentale...
+  -  Disparition de certains secteur, [métier impacté ?](https://www.cognizant.com/us/en/aem-i/ai-and-the-future-of-work-report#:~:text=Today%E2%80%94six%20years%20ahead%20of%20schedule%E2%80%9493%25%20of%20jobs%20could,and%20to%20a%20greater%20extent%20than%20we%20anticipated).
+  - Capacités cognitives: concentration, mémoire, attention, créativité
+  
+Il y a discours très polarisé autour de l'IA gen entre menaces et opportunités. C'est un domaine en constante évolution, qui change extrêmement vite et ce qui est vrai aujourd'hui ne le sera surement plus demain. Le domaine est nouveaux pour nous, mais aussi pour ceux qui le développent.   
+
+:::
+
+---
+
+## 
+
+---
+
+# Exemples de slides générés par IA: 
+
+Quasiment tous les slides étaients creux.
+
+Aucun contenue généré à partir de mes notes n'était pertinent. Ils étaient soit creux, soit éronnées.
+
+
+---
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![](plot/slides_creux/slide_1.png){width="90%"}
+![](plot/slides_creux/slide_2.png){width="90%"}
+![](plot/slides_creux/slide_4.png){width="90%"}
+:::
+
+::: {.column width="45%"}
+![](plot/slides_creux/slide_5.png){width="90%"}
+![](plot/slides_creux/slide_3.png){width="90%"}
+:::
+
+::::
