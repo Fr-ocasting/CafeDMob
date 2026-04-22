@@ -21,8 +21,6 @@ format:
     # footer: CEREMA Limites des LLMs
     slide-number: true
     incremental: false
-  html:
-    keep-ipynb: false
 editor: source
 ---
 
